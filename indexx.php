@@ -1,15 +1,5 @@
-<?php
-session_start();
-require 'db_connection.php';
-require 'login.php';
-// IF USER LOGGED IN
-if(isset($_SESSION['user_email'])){
-header('Location: home.php');
-exit;
-}
-?>
-
 <html lang="en">
+
 
 <head>
   <meta charset="utf-8">
@@ -163,7 +153,16 @@ echo '<div class="error_message">'.$error_message.'</div>';
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
-
+  <?php
+session_start();
+require 'db_connection.php';
+require 'login.php';
+// IF USER LOGGED IN
+if(isset($_SESSION['user_email'])){
+header('Location: home.php');
+exit;
+}
+?>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
